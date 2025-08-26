@@ -1,3 +1,4 @@
 MLOPS_PROJECT_6.egg-info/
 venv/
 logs/
+gcp-key.json

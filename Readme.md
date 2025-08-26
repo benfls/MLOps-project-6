@@ -59,6 +59,8 @@ Le workflow est composé de trois jobs principaux :
    - Configuration du cluster GKE
    - Déploiement de l’application via le fichier `kubernetes-deployment.yaml`  
 
+---
+
 **Workflow complet :**
 
 workflows:
@@ -75,6 +77,8 @@ workflows:
 
 Grâce à ce pipeline, tout push sur GitHub déclenche automatiquement la build de l’image et son déploiement sur GKE, garantissant un flux CI/CD complet
             
+---
+
 ## 🛠 Technologies utilisées
 - Python, Flask
 - Scikit-learn

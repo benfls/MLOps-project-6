@@ -20,9 +20,9 @@ jobs:
      - run:
         name: Authenticate with google cloud 
         command: |
-            echo "$GCLOUD_SERVICE_KEY" | base64 --decode > gcp-key.json
-            gcloud auth acitvate-service-account --key-file=gcp-key.json
-            gcloud auth configure-docker us-central1-docker.pkg.dev || gcloud auth configure-docker
+              echo "$GCLOUD_SERVICE_KEY" | base64 --decode > gcp-key.json
+              gcloud auth activate-service-account --key-file=gcp-key.json
+              gcloud auth configure-docker us-central1-docker.pkg.dev || gcloud auth configure-docker
 
      - run:
         name: Build and Push image
@@ -39,13 +39,13 @@ jobs:
           name: Authenticate with google cloud
           command: |
               echo "$GCLOUD_SERVICE_KEY" | base64 --decode > gcp-key.json
-              gcloud auth acitvate-service-account --key-file=gcp-key.json
+              gcloud auth activate-service-account --key-file=gcp-key.json
               gcloud auth configure-docker us-central1-docker.pkg.dev || gcloud auth configure-docker
 
       - run:
           name: Configure GKE 
           command: |
-            gcloud container clusters get_credentials $GKE_CLUSTER --zone $GOOGLE_COMPUTE_ZONE --project $GOOGLE_PROJECT_ID
+            gcloud container clusters get_credentials $GKE_CLUSTER --region $GOOGLE_COMPUTE_REGION --project $GOOGLE_PROJECT_ID
 
       - run:
           name: Deploy to GKE
